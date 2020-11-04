@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Palette</string>
+    <string name="string_alert_no_email_format">이메일 형식이 아닙니다</string>
+    <string name="string_password">비밀번호</string>
+    <string name="string_find_password">비밀번호 찾기</string>
+    <string name="string_login">로그인</string>
+    <string name="string_email">이메일</string>
+    <string name="string_alert_no_matching_account">일치하지 않는 계정이거나 정보가 잘못되었습니다.</string>
+    <string name="string_signup">회원가입</string>
+    <string name="string_privacy_info">개인정보 활용방안</string>
+    <string name="string_ok">확인</string>
+    <string name="string_alert_exist_account">이미 가입된 계정입니다</string>
+    <string name="string_name">이름</string>
+    <string name="string_alert_do_not_match">일치하지 않습니다</string>
+    <string name="string_re_password">비밀번호 재입력</string>
+    <string name="string_alert_over_number">8자 이상 입력해주세요</string>
+</resources>
