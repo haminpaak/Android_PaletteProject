@@ -21,6 +21,7 @@ public class LoginActivity extends BaseActivity {
         final EditText emailEditText = findViewById(R.id.Login_EditText_email);
         final EditText passwordEditText = findViewById(R.id.Login_EditText_password);
 
+        //test
         okButton.setOnClickListener(new View.OnClickListener(){
            @Override
            public void onClick(View view){

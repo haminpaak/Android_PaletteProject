@@ -242,7 +242,7 @@
         android:textAlignment="center"
         android:textColor="#E50000"
         android:textSize="16dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/SignUp_Button_privacy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
