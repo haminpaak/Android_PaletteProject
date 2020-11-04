@@ -231,7 +231,7 @@
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="SpUsage" />
-
+    
     <TextView
         android:id="@+id/SignUp_TextView_bigAlert"
         android:layout_width="0dp"
@@ -242,7 +242,7 @@
         android:textAlignment="center"
         android:textColor="#E50000"
         android:textSize="16dp"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/SignUp_Button_privacy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
