@@ -1,17 +1,23 @@
 package com.AnonymousHippo.Palette;
 
+import android.util.Log;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
- */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void test() {
+        // 데이터 전송용 배열
+        String[] keys = new String[1];
+        String[] data = new String[1];
+
+        keys[0] = "email";
+        data[0] = "hoeunlee228@gmail.com";
+
+        String result = HttpPostData.POST("account/sendCode/", keys, data);
+
+        System.out.println(result);
     }
 }

@@ -14,4 +14,5 @@
     <string name="string_alert_do_not_match">일치하지 않습니다</string>
     <string name="string_re_password">비밀번호 재입력</string>
     <string name="string_alert_over_number">8자 이상 입력해주세요</string>
+    <string name="string_age">나이</string>
 </resources>

@@ -11,11 +11,11 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class HttpPostData {
-    private static String URLString = "http://";
+    private static final String URLString = "http://141.164.40.63:8000/";
 
-    public static String POST(String[] keys, String[] datas) {
+    public static String POST(String dir, String[] keys, String[] data) {
         try {
-            URL url = new URL(URLString);
+            URL url = new URL(URLString + dir);
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
             http.setDefaultUseCaches(false);
             http.setDoInput(true);
@@ -25,12 +25,14 @@ public class HttpPostData {
             OutputStreamWriter outStream = new OutputStreamWriter(http.getOutputStream(), StandardCharsets.UTF_8);
             PrintWriter writer = new PrintWriter(outStream);
             StringBuilder buffer = new StringBuilder();
-            buffer.append(keys[0]).append("=").append(datas[0]);
+            buffer.append(keys[0]).append("=").append(data[0]);
 
             for (int i = 1; i < keys.length; i++){
                 buffer.append("&");
-                buffer.append(keys[i]).append("=").append(datas[i]);
+                buffer.append(keys[i]).append("=").append(data[i]);
             }
+
+            Log.i("QuerySet", buffer.toString());
 
             writer.write(buffer.toString());
             writer.flush();
@@ -39,15 +41,13 @@ public class HttpPostData {
             InputStreamReader tmp = new InputStreamReader(http.getInputStream(), StandardCharsets.UTF_8);
             BufferedReader reader = new BufferedReader(tmp);
             StringBuilder builder = new StringBuilder();
+            String string;
 
-            try {
-                builder.append(reader.read());
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "NO_DATA_RECEIVED";
+            while ((string = reader.readLine()) != null) {
+                builder.append(string);
             }
 
-            return builder.toString();
+             return builder.toString();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,11 +55,7 @@ public class HttpPostData {
         }
     }
 
-    public void setURL(String url){
-        this.URLString = url;
-    }
-
     public String getURL(){
-        return this.URLString;
+        return URLString;
     }
 }

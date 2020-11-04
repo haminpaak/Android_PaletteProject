@@ -41,7 +41,7 @@
         android:id="@+id/SignUp_TextView_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/nanumr"
         android:text="@string/string_email"
         android:textColor="#000000"
@@ -69,13 +69,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/nanumr"
         android:text="@string/string_alert_no_email_format"
         android:textColor="#E50000"
         android:textSize="16dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/SignUp_EditText_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/SignUp_TextView_email"
@@ -122,7 +122,7 @@
         android:text="@string/string_alert_over_number"
         android:textColor="#E50000"
         android:textSize="16dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/SignUp_EditText_password1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/SignUp_TextView_password1"
@@ -203,6 +203,34 @@
         app:layout_constraintTop_toBottomOf="@id/SignUp_TextView_name"
         tools:ignore="Autofill,LabelFor,SpUsage,TextFields" />
 
+    <TextView
+        android:id="@+id/SignUp_TextView_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/nanumr"
+        android:text="@string/string_age"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SignUp_EditText_name"
+        tools:ignore="SpUsage" />
+
+    <EditText
+        android:id="@+id/SignUp_EditText_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/arial"
+        android:inputType="number"
+        android:maxLines="1"
+        android:nextFocusDown="@id/SignUp_Button_done"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@id/SignUp_TextView_age"
+        tools:ignore="Autofill,LabelFor,SpUsage,TextFields" />
+
     <Button
         android:id="@+id/SignUp_Button_privacy"
         android:layout_width="match_parent"
@@ -233,7 +261,7 @@
         tools:ignore="SpUsage" />
 
     <TextView
-        android:id="@+id/SignUp_TextView_bigAlert"
+        android:id="@+id/SignUp_TextView_alert4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -242,7 +270,7 @@
         android:textAlignment="center"
         android:textColor="#E50000"
         android:textSize="16dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/SignUp_Button_privacy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
