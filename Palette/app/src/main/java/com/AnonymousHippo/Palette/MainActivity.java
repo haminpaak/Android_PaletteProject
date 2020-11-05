@@ -78,7 +78,7 @@ public class MainActivity extends BaseActivity {
         myFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), GalleryActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();

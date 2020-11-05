@@ -1,5 +1,6 @@
 package com.AnonymousHippo.Palette;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,16 +11,23 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import static java.lang.Math.abs;
+
 public class GalleryActivity extends BaseActivity {
 
     /* 몰입모드 */
     private View decorView;
     private int uiOption;
 
-    // 줌 인, 줌 아웃
-    private ScaleGestureDetector mScaleGestureDetector;
-    private float mScaleFactor = 1.0f;
+    // 이미지 뷰
     private ImageView mainImageView;
+
+    // 줌 인, 줌 아웃
+    private double touch_interval_X = 0; // X 터치 간격
+    private double touch_interval_Y = 0; // Y 터치 간격
+    private int zoom_in_count = 0; // 줌 인 카운트
+    private int zoom_out_count = 0; // 줌 아웃 카운트
+    private int touch_zoom = 0; // 줌 크기
 
     // 저장한 전시회 Flag
     private boolean SAVED;
@@ -56,8 +64,6 @@ public class GalleryActivity extends BaseActivity {
         ImageButton fullScreenButton = findViewById(R.id.Gallery_ImageButton_full);
         final ImageButton plusButton = findViewById(R.id.Gallery_ImageButton_plus);
 
-        mScaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
-
         // 초기화
         SAVED = false;
         ROTATED = false;
@@ -82,6 +88,9 @@ public class GalleryActivity extends BaseActivity {
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
                 finish();
             }
         });
@@ -106,7 +115,8 @@ public class GalleryActivity extends BaseActivity {
             public void onClick(View v) {
                 if(ROTATED){
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                } else{
+                }
+                else{
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 }
                 decorView.setSystemUiVisibility(uiOption);
@@ -116,8 +126,8 @@ public class GalleryActivity extends BaseActivity {
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent motionEvent){
-        mScaleGestureDetector.onTouchEvent(motionEvent);
+
+    public boolean onTouchEvent(MotionEvent event) {
         return true;
     }
 
@@ -128,19 +138,6 @@ public class GalleryActivity extends BaseActivity {
 
     public void onImageClicked(View view) {
 
-    }
-
-    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener{
-        @Override
-        public boolean onScale(ScaleGestureDetector scaleGestureDetector){
-            mScaleFactor *= scaleGestureDetector.getScaleFactor();
-
-            mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 10.0f));
-            mainImageView.setScaleX(mScaleFactor);
-            mainImageView.setScaleY(mScaleFactor);
-
-            return true;
-        }
     }
 
     // Background -> Foreground 올라왔을 때 몰입 모드 재적용

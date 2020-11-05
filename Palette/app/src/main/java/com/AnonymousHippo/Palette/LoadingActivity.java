@@ -19,7 +19,7 @@ public class LoadingActivity extends BaseActivity {
         final TextView logoTextView = findViewById(R.id.Loading_TextView_title);
         logoTextView.startAnimation(LogoAnimation);
 
-        Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
+        Intent intent = new Intent(getApplicationContext(), GetInterestActivity.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
         finish();

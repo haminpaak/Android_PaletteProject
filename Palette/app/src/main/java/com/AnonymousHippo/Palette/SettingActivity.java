@@ -37,7 +37,7 @@ public class SettingActivity extends BaseActivity {
         myProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MyProfileActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
             }
@@ -57,7 +57,7 @@ public class SettingActivity extends BaseActivity {
         askButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), AskActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
             }
@@ -67,7 +67,7 @@ public class SettingActivity extends BaseActivity {
         changePasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ChangePasswordActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
             }
@@ -77,9 +77,10 @@ public class SettingActivity extends BaseActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
+                finish();
             }
         });
 
@@ -87,7 +88,7 @@ public class SettingActivity extends BaseActivity {
         quitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), QuitActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
             }
