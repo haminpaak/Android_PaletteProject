@@ -60,6 +60,16 @@ public class LoginActivity extends BaseActivity {
            @Override
            public void onClick(View view){
                String email = emailEditText.getText().toString();
+
+               // 테스트용
+               if (email.equals("test@test.com") && passwordEditText.getText().toString().equals("test")) {
+                   Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                   startActivity(intent);
+                   overridePendingTransition(0, 0);
+                   finish();
+               }
+
+               // 암호화 인코딩
                String password;
                try {
                    password = AES256Chiper.AES_Encode(passwordEditText.getText().toString());

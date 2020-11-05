@@ -4,9 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:background="#FFFFFF"
     android:orientation="vertical"
-    android:background="#FFFFFF">
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/Main_ScrollView_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/basic_search"
+                android:hint="검색"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="#CDCDCD" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/nanumr"
+                android:text="추천"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:layout_marginTop="15dp"
+                android:background="#CDCDCD" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/Main_LinearLayout_TOP"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="onTOPClicked">
+
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:id="@+id/Main_blurView_TOP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:realtimeBlurRadius="20dp"
+            app:realtimeOverlayColor="#90FFFFFF" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand"
+        android:text="palette"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@id/Main_LinearLayout_TOP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/Main_LinearLayout_TOP" />
 
     <com.github.mmin18.widget.RealtimeBlurView
         android:id="@+id/Main_blurView"
@@ -20,16 +110,17 @@
 
     <LinearLayout
         android:id="@+id/Main_LinearLayout_FAB"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center|bottom"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
-            android:id="@+id/FAB_study"
+            android:id="@+id/Main_FAB_my"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:adjustViewBounds="true"
@@ -37,25 +128,24 @@
             android:elevation="6dp"
             android:padding="20dp"
             android:scaleType="centerCrop"
-            android:visibility="visible"
-            app:srcCompat="@drawable/timetable" />
+            android:visibility="invisible" />
 
         <TextView
-            android:id="@+id/FABTV_study"
+            android:id="@+id/Main_FABText_my"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/nanumr"
-            android:text="test"
+            android:text="내 전시회"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="18dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             tools:ignore="SpUsage" />
 
         <ImageButton
-            android:id="@+id/FAB_todo"
+            android:id="@+id/Main_FAB_like"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:adjustViewBounds="true"
@@ -63,51 +153,24 @@
             android:elevation="6dp"
             android:padding="17dp"
             android:scaleType="centerCrop"
-            android:visibility="visible"
-            app:srcCompat="@drawable/todo" />
+            android:visibility="invisible" />
 
         <TextView
-            android:id="@+id/FABTV_todo"
+            android:id="@+id/Main_FABText_like"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/nanumr"
-            android:text="test"
+            android:text="좋아요"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="18dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             tools:ignore="SpUsage" />
 
         <ImageButton
-            android:id="@+id/FAB_diagnosis"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/round_button_white"
-            android:elevation="6dp"
-            android:padding="14dp"
-            android:scaleType="centerCrop"
-            android:visibility="visible"
-            app:srcCompat="@drawable/study" />
-
-        <TextView
-            android:id="@+id/FABTV_diagnosis"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="15dp"
-            android:fontFamily="@font/nanumr"
-            android:text="test"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="18dp"
-            android:visibility="visible"
-            tools:ignore="SpUsage" />
-
-        <ImageButton
-            android:id="@+id/FAB_setting"
+            android:id="@+id/Main_FAB_setting"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:adjustViewBounds="true"
@@ -115,29 +178,30 @@
             android:elevation="6dp"
             android:padding="20dp"
             android:scaleType="centerCrop"
-            android:visibility="visible"
-            app:srcCompat="@drawable/setting" />
+            android:visibility="invisible" />
 
         <TextView
-            android:id="@+id/FABTV_setting"
+            android:id="@+id/Main_FABText_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/nanumr"
-            android:text="test"
+            android:text="@string/string_setting"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="18dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             tools:ignore="SpUsage" />
 
         <ImageButton
-            android:id="@+id/FAB_main"
+            android:id="@+id/Main_FAB_main"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_margin="10dp"
             android:adjustViewBounds="true"
             android:background="@drawable/round_button_black"
+            android:elevation="6dp"
             android:padding="14dp"
             android:scaleType="centerCrop"
             android:stateListAnimator="@null" />

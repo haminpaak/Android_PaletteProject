@@ -15,4 +15,7 @@
     <string name="string_re_password">비밀번호 재입력</string>
     <string name="string_alert_over_number">8자 이상 입력해주세요</string>
     <string name="string_age">나이</string>
+    <string name="string_setting">설정</string>
+    <string name="string_developer">개발팀</string>
+    <string name="string_group_name">익명의 하마</string>
 </resources>
