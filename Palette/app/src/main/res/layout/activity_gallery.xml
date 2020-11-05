@@ -11,19 +11,19 @@
         android:id="@+id/Gallery_ImageView_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:focusable="true"
         android:onClick="onImageClicked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/art1"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        app:srcCompat="@drawable/art1" />
 
     <LinearLayout
-        android:layout_width="160dp"
-        android:layout_height="30dp"
+        android:layout_width="210dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/background_remote_control"
         android:gravity="center"
@@ -31,6 +31,41 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/Gallery_ImageButton_left"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#00000000"
+            app:srcCompat="@drawable/leftarrow" />
+
+        <ImageButton
+            android:id="@+id/Gallery_ImageButton_plus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#00000000"
+            app:srcCompat="@drawable/plus" />
+
+        <ImageButton
+            android:id="@+id/Gallery_ImageButton_full"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#00000000"
+            app:srcCompat="@drawable/fullscreen" />
+
+        <ImageButton
+            android:id="@+id/Gallery_ImageButton_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#00000000"
+            app:srcCompat="@drawable/close" />
+
+        <ImageButton
+            android:id="@+id/Gallery_ImageButton_right"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#00000000"
+            app:srcCompat="@drawable/rightarrow" />
 
 
     </LinearLayout>
