@@ -13,25 +13,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GalleryInfoActivity"/>
-        <activity android:name=".EditMyProfileActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".SearchListActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".GalleryActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".AskActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".MyProfileActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".QuitActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".FindPasswordActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".DeveloperActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".SettingActivity"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".BillingActivity"></activity>
+        <activity android:name=".GalleryInfoActivity" />
+        <activity
+            android:name=".EditMyProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SearchListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GalleryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AskActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QuitActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FindPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DeveloperActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SettingActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".NoInternetActivity"
             android:screenOrientation="portrait" />
