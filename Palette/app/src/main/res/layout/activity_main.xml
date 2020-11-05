@@ -74,7 +74,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="onTOPClicked">
+        android:onClick="onTOPClicked"
+        android:focusable="true">
 
         <com.github.mmin18.widget.RealtimeBlurView
             android:id="@+id/Main_blurView_TOP"

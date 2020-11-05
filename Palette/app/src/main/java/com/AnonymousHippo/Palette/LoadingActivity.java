@@ -10,7 +10,7 @@ public class LoadingActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
-        Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
+        Intent intent = new Intent(getApplicationContext(), GalleryActivity.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
         finish();

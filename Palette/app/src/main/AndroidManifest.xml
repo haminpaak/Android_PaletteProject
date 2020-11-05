@@ -13,7 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DeveloperActivity"></activity>
+        <activity android:name=".GalleryInfoActivity"></activity>
+        <activity android:name=".EditMyProfileActivity" />
+        <activity android:name=".SearchListActivity" />
+        <activity android:name=".GalleryActivity" />
+        <activity android:name=".AskActivity" />
+        <activity android:name=".MyProfileActivity" />
+        <activity android:name=".QuitActivity" />
+        <activity android:name=".FindPasswordActivity" />
+        <activity android:name=".DeveloperActivity" />
         <activity android:name=".SettingActivity" />
         <activity
             android:name=".NoInternetActivity"

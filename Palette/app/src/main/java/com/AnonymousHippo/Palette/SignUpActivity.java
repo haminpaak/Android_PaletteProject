@@ -87,8 +87,20 @@ public class SignUpActivity extends AppCompatActivity {
         password2AlertTextView = findViewById(R.id.SignUp_TextView_alert3);
         alertTextView = findViewById(R.id.SignUp_TextView_alert4);
 
+        Button privacyButton = findViewById(R.id.SignUp_Button_privacy);
+
         // 초기화
         insert1 = insert2 = insert3 = insert4 = insert5 = false;
+
+        // 개인정보 처리방침 Button
+        privacyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PrivatePrivacyActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+            }
+        });
 
         // 회원가입 Button
         okButton.setOnClickListener(new View.OnClickListener() {
@@ -154,7 +166,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                                 switch (result) {
                                     case "1": {
-                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        Intent intent = new Intent(getApplicationContext(), GetInterestActivity.class);
                                         startActivity(intent);
                                         overridePendingTransition(0, 0);
                                         finish();

@@ -46,6 +46,7 @@ public class LoginActivity extends BaseActivity {
 
         // 인스턴스화
         final Button okButton = findViewById(R.id.Login_Button_login);
+        final Button findPasswordButton = findViewById(R.id.Login_Button_findPassword);
         final EditText emailEditText = findViewById(R.id.Login_EditText_email);
         final EditText passwordEditText = findViewById(R.id.Login_EditText_password);
         ImageButton backButton = findViewById(R.id.Login_ImageButton_back);
@@ -107,6 +108,16 @@ public class LoginActivity extends BaseActivity {
                    }
                }.start();
            }
+        });
+
+        // 비밀번호 찾기 버튼
+        findPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), FindPasswordActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+            }
         });
 
         // 이메일 EditText
