@@ -18,6 +18,7 @@ public class SettingActivity extends BaseActivity {
         ImageButton backButton = findViewById(R.id.Setting_ImageButton_back);
         Button myProfileButton = findViewById(R.id.Setting_Button_MyProfile);
         Button editInterestButton = findViewById(R.id.Setting_Button_EditInterest);
+        Button setTTSButton = findViewById(R.id.Setting_Button_SetTTS);
         Button developerButton = findViewById(R.id.Setting_Button_Developer);
         Button askButton = findViewById(R.id.Setting_Button_Ask);
         Button billingButton = findViewById(R.id.Setting_Button_Billing);
@@ -51,6 +52,15 @@ public class SettingActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), EditInterestActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+            }
+        });
+
+        setTTSButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SetTTSActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
             }
