@@ -1,5 +1,7 @@
 package com.AnonymousHippo.Palette;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,9 +18,7 @@ import com.igalata.bubblepicker.rendering.BubblePicker;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-
-public class GetInterestActivity extends BaseActivity {
+public class EditInterestActivity extends AppCompatActivity {
 
     // 데이터 전송용 배열
     private final String[] keys = new String[2];
@@ -47,9 +47,9 @@ public class GetInterestActivity extends BaseActivity {
         setContentView(R.layout.activity_get_interest);
 
         // 인스턴스화
-        Button okButton = findViewById(R.id.GetInterest_Button_done);
-        bubblePicker = findViewById(R.id.GetInterest_BubblePicker_main);
-        textView = findViewById(R.id.GetInterest_TextView_text);
+        Button okButton = findViewById(R.id.EditInterest_Button_done);
+        bubblePicker = findViewById(R.id.EditInterest_BubblePicker_main);
+        textView = findViewById(R.id.EditInterest_TextView_text);
 
         // Bubble Picker Adapter
         bubblePicker.setAdapter(new BubblePickerAdapter() {
@@ -120,9 +120,6 @@ public class GetInterestActivity extends BaseActivity {
 
                         switch (result) {
                             case "1": {
-                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                                startActivity(intent);
-                                overridePendingTransition(0, 0);
                                 finish();
                                 break;
                             }
@@ -154,6 +151,6 @@ public class GetInterestActivity extends BaseActivity {
     // 뒤로가기 버튼
     @Override
     public void onBackPressed() {
-        //
+        finish();
     }
 }

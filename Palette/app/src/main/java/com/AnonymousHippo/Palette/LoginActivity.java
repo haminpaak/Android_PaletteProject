@@ -2,6 +2,7 @@ package com.AnonymousHippo.Palette;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,6 +11,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -53,30 +55,23 @@ public class LoginActivity extends BaseActivity {
         alertTextView = findViewById(R.id.Login_TextView_bigAlert);
         emailAlertTextView = findViewById(R.id.Login_TextView_alert1);
 
+        final CheckBox autoLoginCheckBox = findViewById(R.id.Login_CheckBox_autoLogin);
+
         // 초기화
         insert1 = insert2 = false;
-
-        //TODO Check Permission, Check Internet
 
         // 로그인 버튼
         okButton.setOnClickListener(new View.OnClickListener(){
            @Override
            public void onClick(View view){
-               String email = emailEditText.getText().toString();
-
-               // 테스트용
-               if (email.equals("test@test.com") && passwordEditText.getText().toString().equals("test")) {
-                   Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                   startActivity(intent);
-                   overridePendingTransition(0, 0);
-                   finish();
-               }
+               final String email = emailEditText.getText().toString();
 
                // 암호화 인코딩
                String password;
                try {
                    password = AES256Chiper.AES_Encode(passwordEditText.getText().toString());
-               } catch (UnsupportedEncodingException | NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException | InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e) {
+               } catch (UnsupportedEncodingException | NoSuchAlgorithmException | NoSuchPaddingException
+                       | InvalidKeyException | InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e) {
                    e.printStackTrace();
                    password = passwordEditText.getText().toString();
                }
@@ -92,6 +87,12 @@ public class LoginActivity extends BaseActivity {
 
                        switch (result) {
                            case "1":{
+                               SharedPreferences preferences = getSharedPreferences("com.AnonymousHippo.Palette.sharePreference", MODE_PRIVATE);
+                               SharedPreferences.Editor editor = preferences.edit();
+                               editor.putString("userEmail", email);
+                               editor.putBoolean("autoLogin", autoLoginCheckBox.isChecked());
+                               editor.apply();
+
                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                startActivity(intent);
                                overridePendingTransition(0, 0);
@@ -131,24 +132,22 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                insert1 = !emailEditText.getText().toString().equals("");
-                if (insert1 && insert2) {
-                    if (android.util.Patterns.EMAIL_ADDRESS.matcher(emailEditText.getText().toString()).matches()) {
-                        okButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.basic_button));
-                        okButton.setEnabled(true);
-                    } else {
-                        okButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.basic_button_unclick));
-                        okButton.setEnabled(false);
-                    }
-                } else {
-                    okButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.basic_button_unclick));
-                    okButton.setEnabled(false);
+                insert1 = android.util.Patterns.EMAIL_ADDRESS.matcher(emailEditText.getText().toString()).matches();
+
+                if(insert1){
+                    emailAlertTextView.setVisibility(View.INVISIBLE);
+                }
+                else{
+                    emailAlertTextView.setVisibility(View.VISIBLE);
                 }
 
-                if (android.util.Patterns.EMAIL_ADDRESS.matcher(emailEditText.getText().toString()).matches()) {
-                    emailAlertTextView.setVisibility(View.INVISIBLE);
-                } else {
-                    emailAlertTextView.setVisibility(View.VISIBLE);
+                if(insert1 && insert2){
+                    okButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.basic_button));
+                    okButton.setClickable(true);
+                }
+                else{
+                    okButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.basic_button_unclick));
+                    okButton.setClickable(false);
                 }
             }
 
@@ -168,23 +167,14 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 insert2 = !passwordEditText.getText().toString().equals("");
-                if (insert1 && insert2) {
-                    if (android.util.Patterns.EMAIL_ADDRESS.matcher(emailEditText.getText().toString()).matches()) {
-                        okButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.basic_button));
-                        okButton.setEnabled(true);
-                    } else {
-                        okButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.basic_button_unclick));
-                        okButton.setEnabled(false);
-                    }
-                } else {
-                    okButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.basic_button_unclick));
-                    okButton.setEnabled(false);
-                }
 
-                if (android.util.Patterns.EMAIL_ADDRESS.matcher(emailEditText.getText().toString()).matches()) {
-                    emailAlertTextView.setVisibility(View.INVISIBLE);
-                } else {
-                    emailAlertTextView.setVisibility(View.VISIBLE);
+                if(insert1 && insert2){
+                    okButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.basic_button));
+                    okButton.setClickable(true);
+                }
+                else{
+                    okButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.basic_button_unclick));
+                    okButton.setClickable(false);
                 }
             }
 

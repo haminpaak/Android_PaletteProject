@@ -14,27 +14,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PermissionActivity"></activity>
+        <activity
+            android:name=".EditInterestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PermissionActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".TestActivity" />
         <activity
             android:name=".ChangePasswordActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".BillingActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".GalleryInfoActivity" />
         <activity
             android:name=".EditMyProfileActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".SearchListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".GalleryActivity"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:screenOrientation="sensor" />
         <activity
             android:name=".AskActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".MyProfileActivity"
             android:screenOrientation="portrait" />
@@ -43,7 +52,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".FindPasswordActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".DeveloperActivity"
             android:screenOrientation="portrait" />

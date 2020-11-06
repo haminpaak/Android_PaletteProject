@@ -1,6 +1,7 @@
 package com.AnonymousHippo.Palette;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,8 +17,10 @@ public class SettingActivity extends BaseActivity {
         // 인스턴스화
         ImageButton backButton = findViewById(R.id.Setting_ImageButton_back);
         Button myProfileButton = findViewById(R.id.Setting_Button_MyProfile);
+        Button editInterestButton = findViewById(R.id.Setting_Button_EditInterest);
         Button developerButton = findViewById(R.id.Setting_Button_Developer);
         Button askButton = findViewById(R.id.Setting_Button_Ask);
+        Button billingButton = findViewById(R.id.Setting_Button_Billing);
         Button changePasswordButton = findViewById(R.id.Setting_Button_ChangePassword);
         Button logoutButton = findViewById(R.id.Setting_Button_LogOut);
         Button quitButton = findViewById(R.id.Setting_Button_Quit);
@@ -43,6 +46,16 @@ public class SettingActivity extends BaseActivity {
             }
         });
 
+        // Interest 수정
+        editInterestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), EditInterestActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+            }
+        });
+
         // 개발팀
         developerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +76,16 @@ public class SettingActivity extends BaseActivity {
             }
         });
 
+        // 결제 관리
+        billingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), BillingActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+            }
+        });
+
         // 비밀번호 변경
         changePasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +100,12 @@ public class SettingActivity extends BaseActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences("com.AnonymousHippo.Palette.sharePreference", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("userEmail", "");
+                editor.putBoolean("autoLogin", false);
+                editor.apply();
+
                 Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
@@ -91,6 +120,7 @@ public class SettingActivity extends BaseActivity {
                 Intent intent = new Intent(getApplicationContext(), QuitActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
+                finish();
             }
         });
     }

@@ -166,10 +166,13 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <CheckBox
+            android:id="@+id/Login_CheckBox_autoLogin"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:checked="true" />
 
         <TextView
+            android:id="@+id/Login_TextView_autoLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanumr"

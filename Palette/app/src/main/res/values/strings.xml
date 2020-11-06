@@ -5,7 +5,7 @@
     <string name="string_find_password">비밀번호 찾기</string>
     <string name="string_login">로그인</string>
     <string name="string_email">이메일</string>
-    <string name="string_alert_no_matching_account">일치하지 않는 계정이거나 정보가 잘못되었습니다.</string>
+    <string name="string_alert_no_matching_account">가입되지 않은 계정이거나 정보가 잘못되었습니다.</string>
     <string name="string_signup">회원가입</string>
     <string name="string_privacy_info">개인정보 처리방침</string>
     <string name="string_ok">확인</string>
@@ -29,4 +29,7 @@
     <string name="string_quit_text3">탈퇴 시 모든 정보는 즉시 파기되어 복구할 수 없습니다. 정말 palette 서비스를 탈퇴하시겠습니까?</string>
     <string name="string_quit_text4">비밀번호를 입력해주세요</string>
     <string name="string_auto_login">자동 로그인</string>
+    <string name="string_new_password">새로운 비밀번호</string>
+    <string name="string_change_password">비밀번호 변경</string>
+    <string name="string_no_password_error">비밀번호를 다시 확인해주세요</string>
 </resources>
