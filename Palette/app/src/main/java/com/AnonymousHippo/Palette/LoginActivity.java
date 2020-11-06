@@ -56,6 +56,8 @@ public class LoginActivity extends BaseActivity {
         // 초기화
         insert1 = insert2 = false;
 
+        //TODO Check Permission, Check Internet
+
         // 로그인 버튼
         okButton.setOnClickListener(new View.OnClickListener(){
            @Override

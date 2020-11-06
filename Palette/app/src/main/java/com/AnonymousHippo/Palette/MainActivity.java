@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
@@ -33,6 +34,7 @@ public class MainActivity extends BaseActivity {
 
     // FAB 애니메이션
     private Animation fab_open, fab_close;
+    private Animation FABAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,12 @@ public class MainActivity extends BaseActivity {
         fab_open = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open);
         fab_close = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close);
 
+
+        // FAB 애니메이션
+        /* 로고 애니메이션 */
+        FABAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotating);
+        FABAnimation.setFillAfter(true);
+
         // FAB 버튼 처리
         mainFAB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +80,16 @@ public class MainActivity extends BaseActivity {
                     Message msg = FABOpenHandler.obtainMessage();
                     FABOpenHandler.sendMessage(msg);
                 }
+            }
+        });
+
+        // FAB Long Click
+        mainFAB.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                mainFAB.setImageResource(R.drawable.circular);
+                mainFAB.startAnimation(FABAnimation);
+                return false;
             }
         });
 

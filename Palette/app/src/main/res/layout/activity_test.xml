@@ -6,10 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".TestActivity">
 
-    <ImageView
-        android:id="@+id/Test_ImageView"
-        android:layout_width="300dp"
+    <TextView
+        android:id="@+id/Test_TextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumr"
+        android:text="result here"
+        android:textColor="#000000"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +22,7 @@
     <Button
         android:id="@+id/Test_Button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

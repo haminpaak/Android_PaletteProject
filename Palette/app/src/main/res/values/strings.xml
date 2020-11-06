@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Palette</string>
+    <string name="app_name">palette</string>
     <string name="string_alert_no_email_format">이메일 형식이 아닙니다</string>
     <string name="string_password">비밀번호</string>
     <string name="string_find_password">비밀번호 찾기</string>
@@ -28,4 +28,5 @@
     <string name="string_quit_text2">회원 탈퇴를 진행하기 위해서는 본인의 이메일을 작성해주세요.</string>
     <string name="string_quit_text3">탈퇴 시 모든 정보는 즉시 파기되어 복구할 수 없습니다. 정말 palette 서비스를 탈퇴하시겠습니까?</string>
     <string name="string_quit_text4">비밀번호를 입력해주세요</string>
+    <string name="string_auto_login">자동 로그인</string>
 </resources>
