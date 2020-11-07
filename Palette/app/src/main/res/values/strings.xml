@@ -32,4 +32,7 @@
     <string name="string_new_password">새로운 비밀번호</string>
     <string name="string_change_password">비밀번호 변경</string>
     <string name="string_no_password_error">비밀번호를 다시 확인해주세요</string>
+    <string name="string_my_profile">내 프로필</string>
+    <string name="string_edit">수정하기</string>
+    <string name="string_cancel">취소</string>
 </resources>

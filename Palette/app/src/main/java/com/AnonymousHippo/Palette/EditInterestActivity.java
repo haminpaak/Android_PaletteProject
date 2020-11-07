@@ -1,8 +1,5 @@
 package com.AnonymousHippo.Palette;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +15,7 @@ import com.igalata.bubblepicker.rendering.BubblePicker;
 
 import org.jetbrains.annotations.NotNull;
 
-public class EditInterestActivity extends AppCompatActivity {
+public class EditInterestActivity extends BaseActivity {
 
     // 데이터 전송용 배열
     private final String[] keys = new String[2];
@@ -34,9 +31,6 @@ public class EditInterestActivity extends AppCompatActivity {
     // 저장용 배열
     String[] check = {"0", "0", "0", "0", "0", "0", "0", "0", "0"};
 
-    // TextView
-    private TextView textView;
-
     // Bubble 색
     int[] colors = {Color.parseColor("#FFB5D8"), Color.parseColor("#A7E7FF"), Color.parseColor("#FFEEAC"), Color.parseColor("#CBFFD2"), Color.parseColor("#F8D5FF"),
             Color.parseColor("#FFB5D8"), Color.parseColor("#A7E7FF"), Color.parseColor("#FFEEAC"), Color.parseColor("#CBFFD2")};
@@ -44,12 +38,11 @@ public class EditInterestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_get_interest);
+        setContentView(R.layout.activity_edit_interest);
 
         // 인스턴스화
         Button okButton = findViewById(R.id.EditInterest_Button_done);
         bubblePicker = findViewById(R.id.EditInterest_BubblePicker_main);
-        textView = findViewById(R.id.EditInterest_TextView_text);
 
         // Bubble Picker Adapter
         bubblePicker.setAdapter(new BubblePickerAdapter() {

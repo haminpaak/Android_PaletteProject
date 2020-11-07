@@ -16,8 +16,6 @@ import com.igalata.bubblepicker.rendering.BubblePicker;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-
 public class GetInterestActivity extends BaseActivity {
 
     // 데이터 전송용 배열
@@ -34,9 +32,6 @@ public class GetInterestActivity extends BaseActivity {
     // 저장용 배열
     String[] check = {"0", "0", "0", "0", "0", "0", "0", "0", "0"};
 
-    // TextView
-    private TextView textView;
-
     // Bubble 색
     int[] colors = {Color.parseColor("#FFB5D8"), Color.parseColor("#A7E7FF"), Color.parseColor("#FFEEAC"), Color.parseColor("#CBFFD2"), Color.parseColor("#F8D5FF"),
             Color.parseColor("#FFB5D8"), Color.parseColor("#A7E7FF"), Color.parseColor("#FFEEAC"), Color.parseColor("#CBFFD2")};
@@ -49,7 +44,8 @@ public class GetInterestActivity extends BaseActivity {
         // 인스턴스화
         Button okButton = findViewById(R.id.GetInterest_Button_done);
         bubblePicker = findViewById(R.id.GetInterest_BubblePicker_main);
-        textView = findViewById(R.id.GetInterest_TextView_text);
+        // TextView
+        TextView textView = findViewById(R.id.GetInterest_TextView_text);
 
         // Bubble Picker Adapter
         bubblePicker.setAdapter(new BubblePickerAdapter() {

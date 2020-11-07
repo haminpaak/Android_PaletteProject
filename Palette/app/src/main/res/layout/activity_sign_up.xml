@@ -196,7 +196,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/arial"
         android:maxLines="1"
-        android:nextFocusDown="@id/SignUp_Button_done"
+        android:nextFocusDown="@id/SignUp_EditText_age"
         android:singleLine="true"
         android:textColor="#000000"
         android:textSize="18dp"

@@ -44,6 +44,7 @@ public class SettingActivity extends BaseActivity {
                 Intent intent = new Intent(getApplicationContext(), MyProfileActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
+                finish();
             }
         });
 

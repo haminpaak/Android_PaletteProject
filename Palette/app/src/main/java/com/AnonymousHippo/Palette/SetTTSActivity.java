@@ -41,7 +41,7 @@ public class SetTTSActivity extends BaseActivity {
         // 초기화
         TTS_FLAG = false;
         SharedPreferences preferences = getSharedPreferences("com.AnonymousHippo.Palette.sharePreference", MODE_PRIVATE);
-        TTS_Pitch = preferences.getFloat("TTS_Pitch", 0.7f);
+        TTS_Pitch = preferences.getFloat("TTS_Pitch", 1.0f);
         TTS_Speed = preferences.getFloat("TTS_Speed", 1.0f);
 
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -65,6 +65,8 @@ public class SetTTSActivity extends BaseActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tts.stop();
+                tts.shutdown();
                 finish();
             }
         });
@@ -73,6 +75,8 @@ public class SetTTSActivity extends BaseActivity {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tts.stop();
+                tts.shutdown();
                 finish();
             }
         });
@@ -94,7 +98,6 @@ public class SetTTSActivity extends BaseActivity {
                     listenButton.setText("들어보기");
                     listenButton.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.basic_button));
                     tts.stop();
-                    tts.shutdown();
                 }
 
             }
@@ -110,6 +113,8 @@ public class SetTTSActivity extends BaseActivity {
 
     @Override
     public void onBackPressed(){
+        tts.stop();
+        tts.shutdown();
         finish();
     }
 
@@ -118,7 +123,6 @@ public class SetTTSActivity extends BaseActivity {
         super.onStop();
         if(tts != null){
             tts.stop();
-            tts.shutdown();
         }
     }
 }
